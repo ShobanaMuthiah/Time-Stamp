@@ -16,8 +16,13 @@ app.use(express.json());
 // Create a new timestamp file
 app.get('/create', (req, res) => {
     let today = format(new Date(), 'dd-MM-yyyy hh-mm-ss');  //today stores the value of current data and time
+    
+    //stores the Timestamp directory to timestampDir
     const timestampDir = 'Timestamp';
+    //It checks the directory is found or nor
     if (!fs.existsSync(timestampDir)) {
+        //if there is no more Timestamp directory found it will creates a new Timestamp directory
+
         fs.mkdirSync(timestampDir);
     }
     //filepath denotes the path of the timestamps which are created and stored it as file named as the current data and time value
@@ -33,7 +38,7 @@ app.get('/create', (req, res) => {
 // Read all timestamp files
 app.get('/read', (req, res) => {
 
-    const timestampDir = 'Timestamp';
+    const timestampDir = 'Timestamp';  
     if (!fs.existsSync(timestampDir)) {
         fs.mkdirSync(timestampDir);
     }
