@@ -47,12 +47,12 @@ app.get('/read', (req, res) => {
     }
 
     //read the Timestamp folder using the method  readdirSync 
-    const files = fs.readdirSync(timestampDir, 'utf8');
+    const files = fs.readdirSync('Timestamp', 'utf8');
 
     //All of the Timestamp files are stored into a data array by mapping the files
     const data= files.map(file => {
         //each file will be stored in filepath as array
-        const filepath = path.join(timestampDir, file);
+        const filepath = path.join('Timestamp', file);
 
 //reading the files which stored inside the filepath array and stored the array into timestamp
         const timestamp= fs.readFileSync(filepath, 'utf8');
